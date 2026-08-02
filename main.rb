@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require_relative "func.rb"
 terminal = TermCpp.new
 raylib = RayCpp.new
