@@ -1,0 +1,14 @@
+#include <iostream>
+#include <cstdlib>
+#include <print>
+#include "main.hpp"
+
+using namespace std;
+
+int main()
+{
+
+println("Hello From Ruby!");
+
+return 0;
+}
