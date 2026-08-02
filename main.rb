@@ -1,1 +1,1 @@
-print "hello world!"
+system("mkdir testing")
