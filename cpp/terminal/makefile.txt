@@ -2,12 +2,12 @@ CXX = g++
 CXXFLAGS = -std=c++23 -Wall -Wextra -Wpedantic
 
 TARGET = main
-SRC = main.cpp
+SRC = src/*.cpp
 
-$(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
+all:
+	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET) $(LDFLAGS)
 
-run: $(TARGET)
+run: all
 	./$(TARGET)
 
 clean:

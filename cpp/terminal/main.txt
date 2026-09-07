@@ -8,7 +8,7 @@ using namespace std;
 int main()
 {
 
-println("Hello From Ruby!");
+    println("Hello From Ruby!");
 
 return 0;
 }

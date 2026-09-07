@@ -20,7 +20,7 @@ when 1
     puts "your Ruby project is ready!"
     puts "-----------------------"
 when 2
-    puts "Raylib or Terminal?"
+    puts "Raylib, or Terminal?"
     puts "-----------------------"
     rayORterm = gets.chomp 
     if rayORterm == "raylib" || rayORterm == "Raylib"

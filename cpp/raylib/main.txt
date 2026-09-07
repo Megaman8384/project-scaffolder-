@@ -2,22 +2,25 @@
 
 using namespace std;
 
+    const int screenWidth = 960;
+    const int screenHeight = 544;
+
 int main()
 {
-InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+    InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
-SetTargetFPS(60);           
+    SetTargetFPS(60);           
 
-    while (!WindowShouldClose())    
-    {
-        BeginDrawing();
+        while (!WindowShouldClose())    
+        {
+            BeginDrawing();
 
-            ClearBackground(BLACK);
+                ClearBackground(BLACK);
 
-        EndDrawing();
-    }
+            EndDrawing();
+        }
 
-CloseWindow();        
+    CloseWindow();        
 
 return 0;
 }
