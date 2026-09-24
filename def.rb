@@ -46,8 +46,6 @@ def make_ray_CPP()
 end
 
 
-
-
 def gen_ray_makefile()
     ray_make_contents = File.read("#{__dir__}/cpp/raylib/make.txt")
     File.write("makefile", ray_make_contents)
@@ -57,6 +55,13 @@ def gen_term_makefile()
     make_contents = File.read("#{__dir__}/cpp/terminal/makefile.txt")
     File.write("makefile", make_contents)
 end
+
+def update_make_proj()
+    system("cp main.rb ~/.local/bin/make-proj")
+    system("cp def.rb ~/.local/bin/def.rb")
+    system("cp -R rb cs cpp ~/.local/bin/")
+    system("chmod +x ~/.local/bin/make-proj")
+end 
 
 
 
@@ -70,5 +75,6 @@ def Help
     puts "make-proj --cs: generate a new C sharp project"
     puts "make-proj --mfile -r: generate a raylib makefile"
     puts "make-proj --mfile -t: generate a terminal makefile"
+    puts "make-proj --update: update your current make-proj config saved in your shell system"
     puts "------------------------------------------------------"
 end 

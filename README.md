@@ -132,7 +132,7 @@ instead of:
 File.read("rb/main.txt")
 ```
 
-This makes the template path relative to `func.rb`, rather than relative to wherever the user happens to run `make-proj`.
+This makes the template path relative to `def.rb`, rather than relative to wherever the user happens to run `make-proj`.
 
 Generated projects should still use normal relative paths:
 
@@ -175,7 +175,7 @@ If the menu appears, the installation works.
 
 ## Updating the installed version
 
-When you change `main.rb` or `func.rb`, copy the updated files into `~/.local/bin` again:
+When you change `main.rb` or `def.rb`, copy the updated files into `~/.local/bin` again:
 
 ```fish
 cp main.rb ~/.local/bin/make-proj
@@ -206,7 +206,7 @@ Check the installed files:
 ls -l ~/.local/bin/
 ```
 
-Check the installed `func.rb`:
+Check the installed `def.rb`:
 
 ```fish
 head -5 ~/.local/bin/func.rb
@@ -226,7 +226,7 @@ From the `project_scaffolder` directory, the usual update sequence is simply:
 
 ```fish
 cp main.rb ~/.local/bin/make-proj
-cp func.rb ~/.local/bin/func.rb
+cp def.rb ~/.local/bin/def.rb
 cp -R rb cs cpp ~/.local/bin/
 chmod +x ~/.local/bin/make-proj
 ```

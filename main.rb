@@ -26,13 +26,18 @@ elsif ARGV[0] == "--mfile" && ARGV[1] == "-r"
     gen_ray_makefile()
     puts "Success!"
 
-elsif ARGV[0] == "-mfile" && ARGV[1] == "-t"
+elsif ARGV[0] == "--mfile" && ARGV[1] == "-t"
     puts "Preparing terminal makefile..."
     gen_term_makefile()
     puts "Success!"
 
 elsif ARGV[0] == "--help"
     Help()
+
+elsif ARGV[0] == "--update"
+    puts "updating..."
+    update_make_proj()
+    puts "Success!"
 
 else
     puts "ERROR: Invalid Argument"
