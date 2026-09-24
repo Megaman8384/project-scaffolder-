@@ -1,49 +1,37 @@
 #!/usr/bin/env ruby
-require_relative "func.rb"
+require_relative "def.rb"
 terminal = TermCpp.new
 raylib = RayCpp.new
 
-puts "======================"
-puts "| project scaffolder |"
-puts "======================"
-puts "  1) new Ruby Project"
-puts "  2) new CPP project"
-puts "  3) new C# project"
-puts "-----------------------"
-print "ENTER: "
-input = gets.chomp.to_i
-puts "-----------------------"
 
-case input
-when 1
-    makeRB()
-    puts "your Ruby project is ready!"
-    puts "-----------------------"
-when 2
-    puts "Raylib, or Terminal?"
-    puts "-----------------------"
-    rayORterm = gets.chomp 
-    if rayORterm == "raylib" || rayORterm == "Raylib"
-        raylib.make_ray_CPP()
-        puts "-----------------------"
-        puts "your raylib project is ready!"
-    elsif rayORterm == "terminal" || rayORterm == "Terminal"
-        terminal.make_terminal_CPP()
-        puts "-----------------------"
-        puts "your terminal project is ready!"
-    else 
-        puts "invalid option"
-    end
-when 3
+if ARGV[0] == "--cpp" && ARGV[1] == "-r"
+    puts "Preparing C++ raylib project..."
+    raylib.make_ray_CPP()
+    puts "Success!"
+elsif ARGV[0] == "--cpp" && ARGV[1] == "-t"
+    puts "Preparing C++ terminal project..."
+    terminal.make_terminal_CPP()
+    puts "Success!"
+elsif ARGV[0] == "--cs" 
+    puts "Preparing C# project..."
     makeCS()
-    puts "your C# project is ready!"
-    puts "-----------------------"
-else 
-    puts "invalid option"
-    puts "-----------------------"
+    puts "Success!"
+elsif ARGV[0] == "--rb"
+    puts "Preparing Ruby project..."
+    makeRB()
+    puts "Success!"
+elsif ARGV[0] == "--help"
+    Help()
+elsif ARGV[0] == "--mfile" && ARGV[1] == "-r"
+    puts "Preparing raylib makefile..."
+    puts "Success!"
+elsif ARGV[0] == "-mfile" && ARGV[1] == "-t"
+    puts "Preparing terminal makefile..."
+    puts "Success!"
+else
+    puts "ERROR: Invalid Argument"
+    puts "HELP: make-proj --help to see a list of valid commands"
 end 
 
-
-
-
+    
 

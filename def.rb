@@ -47,3 +47,16 @@ class RayCpp
     end
 
 end
+
+def Help
+    puts "------------------------------------------------------"
+    puts "                  MAKE-PROJ HELPER                    "
+    puts "------------------------------------------------------"
+    puts "make-proj --cpp -r: generate a new C++ raylib project"
+    puts "make-proj --cpp -t: generate a new C++ terminal project"
+    puts "make-proj --rb: generate a new Ruby project"
+    puts "make-proj --cs: generate a new C sharp project"
+    puts "make-proj --mfile -r: generate a raylib makefile"
+    puts "make-proj --mfile -t: generate a terminal makefile"
+    puts "------------------------------------------------------"
+end 
