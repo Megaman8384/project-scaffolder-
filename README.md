@@ -2,6 +2,10 @@
 
 This document contains the commands needed to install `make-proj` as a global terminal command.
 
+Currently tested on macOS and Arch Linux. It should work on other Unix-like systems, but they have not been tested.
+
+I doubt it would work on windows though. 
+
 ## 1. Create a local executable directory
 
 ```fish
