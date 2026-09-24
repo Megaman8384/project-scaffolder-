@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -std=c++23 -Wall -Iinclude -Wextra -Wpedantic
 
 TARGET = main
-SRC = src/*.cpp
+SRC = $(shell find src -name "*.cpp")
 
 all:
 	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET) $(LDFLAGS)

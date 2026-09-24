@@ -8,6 +8,8 @@ def makeRB()
     File.write("new_ruby_project/def.rb", def_contents)
 end
 
+
+
 def makeCS()
     cs_contents = File.read("#{__dir__}/cs/main.txt")
 
@@ -16,37 +18,47 @@ def makeCS()
 end
 
 
-class TermCpp
 
-    def make_terminal_CPP()
+def make_terminal_CPP()
+    cpp_main_contents = File.read("#{__dir__}/cpp/terminal/main.txt")
+    hpp_contents = File.read("#{__dir__}/cpp/terminal/header.txt")
+    make_contents = File.read("#{__dir__}/cpp/terminal/makefile.txt")
 
-        cpp_main_contents = File.read("#{__dir__}/cpp/terminal/main.txt")
-        hpp_contents = File.read("#{__dir__}/cpp/terminal/header.txt")
-        make_contents = File.read("#{__dir__}/cpp/terminal/makefile.txt")
-
-        Dir.mkdir('new_CPP_teminal_project')
-        File.write("new_CPP_teminal_project/main.cpp", cpp_main_contents)
-        File.write("new_CPP_teminal_project/main.hpp", hpp_contents)
-        File.write("new_CPP_teminal_project/makefile", make_contents)
-
-    end
+    Dir.mkdir('new_CPP_teminal_project')
+    File.write("new_CPP_teminal_project/main.cpp", cpp_main_contents)
+    File.write("new_CPP_teminal_project/main.hpp", hpp_contents)
+    File.write("new_CPP_teminal_project/makefile", make_contents)
 end
 
-class RayCpp
 
-    def make_ray_CPP()
-        ray_main_contents = File.read("#{__dir__}/cpp/raylib/main.txt")
-        ray_header_contents = File.read("#{__dir__}/cpp/raylib/header.txt")
-        ray_make_contents = File.read("#{__dir__}/cpp/raylib/make.txt")
 
-        Dir.mkdir('new_CPP_raylib_project')
 
-        File.write("new_CPP_raylib_project/main.cpp", ray_main_contents)
-        File.write("new_CPP_raylib_project/main.hpp", ray_header_contents)
-        File.write("new_CPP_raylib_project/makefile", ray_make_contents)
-    end
+def make_ray_CPP()
+    ray_main_contents = File.read("#{__dir__}/cpp/raylib/main.txt")
+    ray_header_contents = File.read("#{__dir__}/cpp/raylib/header.txt")
+    ray_make_contents = File.read("#{__dir__}/cpp/raylib/make.txt")
 
+    Dir.mkdir('new_CPP_raylib_project')
+
+    File.write("new_CPP_raylib_project/main.cpp", ray_main_contents)
+    File.write("new_CPP_raylib_project/main.hpp", ray_header_contents)
+    File.write("new_CPP_raylib_project/makefile", ray_make_contents)
 end
+
+
+
+
+def gen_ray_makefile()
+    ray_make_contents = File.read("#{__dir__}/cpp/raylib/make.txt")
+    File.write("makefile", ray_make_contents)
+end 
+
+def gen_term_makefile()
+    make_contents = File.read("#{__dir__}/cpp/terminal/makefile.txt")
+    File.write("makefile", make_contents)
+end
+
+
 
 def Help
     puts "------------------------------------------------------"
