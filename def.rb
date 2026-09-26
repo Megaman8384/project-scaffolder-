@@ -57,11 +57,11 @@ def gen_term_makefile()
 end
 
 def update_make_proj()
-    system("cp main.rb ~/.local/bin/make-proj")
-    system("cp def.rb ~/.local/bin/def.rb")
-    system("cp -R rb cs cpp ~/.local/bin/")
-    system("chmod +x ~/.local/bin/make-proj")
-end 
+  system("cp #{__dir__}/main.rb ~/.local/bin/make-proj")
+  system("cp #{__dir__}/def.rb ~/.local/bin/def.rb")
+  system("cp -R #{__dir__}/rb #{__dir__}/cs #{__dir__}/cpp ~/.local/bin/")
+  system("chmod +x ~/.local/bin/make-proj")
+end
 
 
 
