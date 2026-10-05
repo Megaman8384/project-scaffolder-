@@ -3,6 +3,7 @@ CXX = g++
 CXXFLAGS = -Wall -std=c++23 -Iinclude -I/opt/homebrew/include
 
 LDFLAGS = -L/opt/homebrew/lib -lraylib \
+          -lbox2d \
           -framework OpenGL \
           -framework Cocoa \
           -framework IOKit \

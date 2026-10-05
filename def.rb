@@ -45,11 +45,27 @@ def make_ray_CPP()
     File.write("new_CPP_raylib_project/makefile", ray_make_contents)
 end
 
+def make_ray_CPP_linux()
+    ray_main_contents = File.read("#{__dir__}/cpp/raylib/main.txt")
+    ray_header_contents = File.read("#{__dir__}/cpp/raylib/header.txt")
+    ray_make_contents = File.read("#{__dir__}/cpp/raylib/linux_make.txt")
+
+    Dir.mkdir('new_CPP_raylib_project_linux')
+
+    File.write("new_CPP_raylib_project_linux/main.cpp", ray_main_contents)
+    File.write("new_CPP_raylib_project_linux/main.hpp", ray_header_contents)
+    File.write("new_CPP_raylib_project_linux/makefile", ray_make_contents)
+end     
 
 def gen_ray_makefile()
     ray_make_contents = File.read("#{__dir__}/cpp/raylib/make.txt")
     File.write("makefile", ray_make_contents)
 end 
+
+def gen_ray_linux_makefile
+    ray_make_contents = File.read("#{__dir__}/cpp/raylib/linux_make.txt")
+    File.write("new_CPP_raylib_project/makefile", ray_make_contents)
+end
 
 def gen_term_makefile()
     make_contents = File.read("#{__dir__}/cpp/terminal/makefile.txt")
@@ -66,15 +82,23 @@ end
 
 
 def Help
+    system("clear")
     puts "------------------------------------------------------"
     puts "                  MAKE-PROJ HELPER                    "
     puts "------------------------------------------------------"
-    puts "make-proj --cpp -r: generate a new C++ raylib project"
+    puts "make-proj --cpp -r --mac: generate a new macOS C++ raylib project"
+    puts "make-proj --cpp -r --linux: generate a new C++ raylib project with a linux specific makefile"
+    puts ""
     puts "make-proj --cpp -t: generate a new C++ terminal project"
+    puts ""
     puts "make-proj --rb: generate a new Ruby project"
-    puts "make-proj --cs: generate a new C sharp project"
-    puts "make-proj --mfile -r: generate a raylib makefile"
+    puts "make-proj --cs: generate a new C# project"
+    puts ""
+    puts "make-proj --mfile -r --mac: generate a macOS specific raylib makefile"
+    puts "make-proj --mfile -r --linux: generate a linux specific raylib makefile"
+    puts ""
     puts "make-proj --mfile -t: generate a terminal makefile"
+    puts ""
     puts "make-proj --update: update your current make-proj config saved in your shell system"
     puts "------------------------------------------------------"
 end 
