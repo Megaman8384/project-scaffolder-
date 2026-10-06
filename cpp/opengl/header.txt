@@ -1,0 +1,25 @@
+#pragma once
+#include <GLFW/glfw3.h>
+#include <iostream>
+
+// you still have to provide your own GLAD!
+
+constexpr ScreenWidth = 960;
+constexpr ScreenHeight = 540;
+
+constexpr CenterX = ScreenWidth / 2;
+constexpr CenterY = ScreenHeight / 2;
+
+
+struct vector2
+{
+    float x;
+    float y;
+};
+
+struct vector3
+{
+    float x;
+    float y;
+    float z;
+};

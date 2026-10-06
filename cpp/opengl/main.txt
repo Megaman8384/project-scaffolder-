@@ -1,0 +1,68 @@
+#include <main.hpp>
+
+// you still have to provide your own GLAD!
+
+constexpr int ScreenWidth = 960;
+constexpr int ScreenHeight = 540;
+
+void FramebufferSizeCallback(GLFWwindow* Window, int Width, int Height)
+{
+    glViewport(0, 0, Width, Height);
+}
+
+int main()
+{
+    // Initialize GLFW
+    if (!glfwInit())
+    {
+        std::cerr << "Failed to initialize GLFW\n";
+        return 1;
+    }
+
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+    // Create window
+    GLFWwindow* Window = glfwCreateWindow(WindowWidth, WindowHeight, "OpenGL Project", nullptr, nullptr);
+
+    if (!Window)
+    {
+        std::cerr << "Failed to create GLFW window\n";
+        glfwTerminate();
+        return 1;
+    }
+
+    glfwMakeContextCurrent(Window);
+    glfwSetFramebufferSizeCallback(Window, FramebufferSizeCallback);
+
+    // Load OpenGL functions
+    if (!gladLoadGLLoader(reinterpret_cast<GLADloadproc>(glfwGetProcAddress)))
+    {
+        std::cerr << "Failed to initialize GLAD\n";
+        glfwDestroyWindow(Window);
+        glfwTerminate();
+        return 1;
+    }
+
+    while (!glfwWindowShouldClose(Window))
+    {
+        // Input
+        if (glfwGetKey(Window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+            glfwSetWindowShouldClose(Window, true);
+
+        // Rendering
+        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        // Present frame
+        glfwSwapBuffers(Window);
+        glfwPollEvents();
+    }
+
+    // Cleanup
+    glfwDestroyWindow(Window);
+    glfwTerminate();
+
+    return 0;
+}

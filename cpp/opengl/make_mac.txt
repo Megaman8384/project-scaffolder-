@@ -1,0 +1,16 @@
+CXX = clang++
+CXXFLAGS = -std=c++23 -Wall -Wextra -Wpedantic -Iinclude
+
+TARGET = OpenGLProject
+SRC = $(shell find src -name "*.cpp")
+
+LIBS = -lglfw -framework OpenGL
+
+all:
+	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET) $(LIBS)
+
+run: all
+	./$(TARGET)
+
+clean:
+	rm -f $(TARGET)
