@@ -53,38 +53,48 @@ end
 
 
 def make_terminal_CPP()
-    cpp_main_contents = File.read("#{__dir__}/cpp/terminal/main.txt")
-    hpp_contents = File.read("#{__dir__}/cpp/terminal/header.txt")
+  cpp_main_contents = File.read("#{__dir__}/cpp/terminal/main.txt")
+  hpp_contents = File.read("#{__dir__}/cpp/terminal/header.txt")
+  make_contents = File.read("#{__dir__}/cpp/terminal/makefile.txt")
 
-    Dir.mkdir('new_CPP_teminal_project')
+  Dir.mkdir('new_CPP_terminal_project')
+  Dir.mkdir('new_CPP_terminal_project/src')
+  Dir.mkdir('new_CPP_terminal_project/include')
 
-    File.write("new_CPP_teminal_project/main.cpp", cpp_main_contents)
-    File.write("new_CPP_teminal_project/main.hpp", hpp_contents)
-    gen_term_makefile()
+  File.write("new_CPP_terminal_project/src/main.cpp", cpp_main_contents)
+  File.write("new_CPP_terminal_project/include/main.hpp", hpp_contents)
+  File.write("new_CPP_terminal_project/makefile", make_contents)
 end
 
 
 def make_ray_CPP()
   ray_main_contents = File.read("#{__dir__}/cpp/raylib/main.txt")
   ray_header_contents = File.read("#{__dir__}/cpp/raylib/header.txt")
+  make_contents = File.read("#{__dir__}/cpp/raylib/make.txt")
 
   Dir.mkdir('new_CPP_raylib_project')
+  Dir.mkdir('new_CPP_raylib_project/src')
+  Dir.mkdir('new_CPP_raylib_project/include')
 
-  File.write("new_CPP_raylib_project/main.cpp", ray_main_contents)
-  File.write("new_CPP_raylib_project/main.hpp", ray_header_contents)
-  gen_ray_makefile()
+
+  File.write("new_CPP_raylib_project/src/main.cpp", ray_main_contents)
+  File.write("new_CPP_raylib_project/include/main.hpp", ray_header_contents)
+  File.write("new_CPP_raylib_project/makefile", make_contents)
 end
 
 
 def make_ray_CPP_linux()
   ray_main_contents = File.read("#{__dir__}/cpp/raylib/main.txt")
   ray_header_contents = File.read("#{__dir__}/cpp/raylib/header.txt")
+  make_contents = File.read("#{__dir__}/cpp/raylib/linux_make.txt")
 
   Dir.mkdir('new_CPP_raylib_project_linux')
+  Dir.mkdir('new_CPP_raylib_project_linux/src')
+  Dir.mkdir('new_CPP_raylib_project_linux/include')
 
-  File.write("new_CPP_raylib_project_linux/main.cpp", ray_main_contents)
-  File.write("new_CPP_raylib_project_linux/main.hpp", ray_header_contents)
-  make_ray_CPP_linux()
+  File.write("new_CPP_raylib_project_linux/src/main.cpp", ray_main_contents)
+  File.write("new_CPP_raylib_project_linux/include/main.hpp", ray_header_contents)
+  File.write("new_CPP_raylib_project_linux/makefile", make_contents)
 end
 
 
