@@ -2,9 +2,6 @@
 
 // you still have to provide your own GLAD!
 
-constexpr int ScreenWidth = 960;
-constexpr int ScreenHeight = 540;
-
 void FramebufferSizeCallback(GLFWwindow* Window, int Width, int Height)
 {
     glViewport(0, 0, Width, Height);

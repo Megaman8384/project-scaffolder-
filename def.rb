@@ -32,23 +32,23 @@ end
 
 # project generation
 def makeRB()
-    main_contents = File.read("#{__dir__}/rb/main.txt")
+  main_contents = File.read("#{__dir__}/rb/main.txt")
 
-    def_contents = File.read("#{__dir__}/rb/def.txt")
+  def_contents = File.read("#{__dir__}/rb/def.txt")
 
-    Dir.mkdir('new_ruby_project')
-    File.write("new_ruby_project/main.rb", main_contents)
-    File.write("new_ruby_project/def.rb", def_contents)
+  Dir.mkdir('new_ruby_project')
+  File.write("new_ruby_project/main.rb", main_contents)
+  File.write("new_ruby_project/def.rb", def_contents)
 end
 
 
 def makeCS()
-    cs_contents = File.read("#{__dir__}/cs/main.txt")
-    csproj_contents = File.read("#{__dir__}/cs/csproj.txt")
+  cs_contents = File.read("#{__dir__}/cs/main.txt")
+  csproj_contents = File.read("#{__dir__}/cs/csproj.txt")
 
-    Dir.mkdir('new_C#_project')
-    File.write("new_C#_project/main.cs", cs_contents)
-    File.write("new_C#_project/main.csproj", csproj_contents)
+  Dir.mkdir('new_C#_project')
+  File.write("new_C#_project/main.cs", cs_contents)
+  File.write("new_C#_project/main.csproj", csproj_contents)
 end
 
 
@@ -71,12 +71,13 @@ def make_ray_CPP()
   ray_main_contents = File.read("#{__dir__}/cpp/raylib/main.txt")
   ray_header_contents = File.read("#{__dir__}/cpp/raylib/header.txt")
   make_contents = File.read("#{__dir__}/cpp/raylib/make.txt")
+  ray_engine_contents = File.read("#{__dir__}/cpp/raylib/engine.txt")
 
   Dir.mkdir('new_CPP_raylib_project')
   Dir.mkdir('new_CPP_raylib_project/src')
   Dir.mkdir('new_CPP_raylib_project/include')
 
-
+  File.write("new_CPP_raylib_project/src/engine.cpp", ray_engine_contents)
   File.write("new_CPP_raylib_project/src/main.cpp", ray_main_contents)
   File.write("new_CPP_raylib_project/include/main.hpp", ray_header_contents)
   File.write("new_CPP_raylib_project/makefile", make_contents)
@@ -85,6 +86,7 @@ end
 
 def make_ray_CPP_linux()
   ray_main_contents = File.read("#{__dir__}/cpp/raylib/main.txt")
+  ray_engine_contents = File.read("#{__dir__}/cpp/raylib/engine.txt")
   ray_header_contents = File.read("#{__dir__}/cpp/raylib/header.txt")
   make_contents = File.read("#{__dir__}/cpp/raylib/linux_make.txt")
 
@@ -92,6 +94,7 @@ def make_ray_CPP_linux()
   Dir.mkdir('new_CPP_raylib_project_linux/src')
   Dir.mkdir('new_CPP_raylib_project_linux/include')
 
+  File.write("new_CPP_raylib_project_linux/src/engine.cpp", ray_engine_contents)
   File.write("new_CPP_raylib_project_linux/src/main.cpp", ray_main_contents)
   File.write("new_CPP_raylib_project_linux/include/main.hpp", ray_header_contents)
   File.write("new_CPP_raylib_project_linux/makefile", make_contents)
@@ -102,7 +105,6 @@ def make_opengl_mac()
   gl_main_contents = File.read("#{__dir__}/cpp/opengl/main.txt")
   gl_header_contents = File.read("#{__dir__}/cpp/opengl/header.txt")
   make_contents = File.read("#{__dir__}/cpp/opengl/make_mac.txt")
-
 
   Dir.mkdir("new_openGL_project_mac")
   Dir.mkdir("new_openGL_project_mac/src")
@@ -118,7 +120,6 @@ def make_opengl_linux()
   gl_header_contents = File.read("#{__dir__}/cpp/opengl/header.txt")
   make_contents = File.read("#{__dir__}/cpp/opengl/make_linux.txt")
 
-
   Dir.mkdir("new_openGL_project_linux")
   Dir.mkdir("new_openGL_project_linux/src")
   Dir.mkdir("new_openGL_project_linux/include")
@@ -133,6 +134,19 @@ def update_make_proj()
   system("cp #{__dir__}/def.rb ~/.local/bin/def.rb")
   system("cp -R #{__dir__}/rb #{__dir__}/cs #{__dir__}/cpp ~/.local/bin/")
   system("chmod +x ~/.local/bin/make-proj")
+end
+
+def VersionNumber(n1, n2, n3)
+  print "Make-Proj Version: "
+  print n1, ".", n2, ".", n3, "\n"
+  puts ""
+  puts "-------------------------------------"
+  puts "            VERSION HELP             "
+  puts "-------------------------------------"
+  puts "- The first number means a completely new type of project has been added"
+  puts "- The second number means an update to a type of project which already exists"
+  puts "- The third number means small fixes for things like syntax errors, bugs, and typos"
+  puts "-------------------------------------"
 end
 
 
@@ -158,6 +172,7 @@ def Help
     puts "make-proj --mfile -t: generate a terminal makefile (should work on both linux AND mac)"
     puts ""
     puts "make-proj --update: update your current make-proj config saved in your shell system"
+    puts "make-proj --version: see what make-proj version you're on"
     puts "make-proj --help: you're using this one right now! :)"
     puts "------------------------------------------------------"
 end

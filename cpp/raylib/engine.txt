@@ -1,0 +1,27 @@
+#include <main.hpp>
+using namespace std; 
+EngineCore engine;
+
+// this is where you initialize
+void EngineCore::Set()
+{
+
+}
+
+// this is where you update game logic 
+void EngineCore::Start()
+{
+
+}
+
+// this is where you render to the screen
+void EngineCore::Update()
+{
+
+}
+
+// this is where you clean up
+void EngineCore::Clean()
+{
+
+}

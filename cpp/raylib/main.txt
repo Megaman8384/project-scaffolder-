@@ -1,25 +1,23 @@
-#include "main.hpp"
+#include <main.hpp>
 
 using namespace std;
 
-    const int screenWidth = 960;
-    const int screenHeight = 544;
-
 int main()
 {
-    InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
-
-    SetTargetFPS(60);           
+    InitWindow(ScreenWidth, ScreenHeight, "Software");
+    SetTargetFPS(60);   
+    engine.Set();        
 
         while (!WindowShouldClose())    
         {
+            engine.Start();
             BeginDrawing();
-
                 ClearBackground(BLACK);
-
+                engine.Update();
             EndDrawing();
         }
 
+    engine.Clean();
     CloseWindow();        
 
 return 0;
