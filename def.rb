@@ -137,6 +137,7 @@ def update_make_proj()
 end
 
 def VersionNumber(n1, n2, n3)
+  puts ""
   print "Make-Proj Version: "
   print n1, ".", n2, ".", n3, "\n"
   puts ""
@@ -145,8 +146,9 @@ def VersionNumber(n1, n2, n3)
   puts "-------------------------------------"
   puts "- The first number means a completely new type of project has been added"
   puts "- The second number means an update to a type of project which already exists"
-  puts "- The third number means small fixes for things like syntax errors, bugs, and typos"
+  puts "- The third number means small fixes for things like syntax errors, bugs, typos, and design changes"
   puts "-------------------------------------"
+  puts ""
 end
 
 

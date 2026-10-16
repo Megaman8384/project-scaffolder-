@@ -70,7 +70,7 @@ elsif ARGV[0] == "--update"
   update_make_proj()
   puts "Success!"
 elsif ARGV[0] == "--version"
-  VersionNumber(4, 1, 0) 
+  VersionNumber(4, 1, 1) 
 else
   puts "ERROR: Invalid Argument"
   puts "HELP: make-proj --help to see a list of valid commands"
