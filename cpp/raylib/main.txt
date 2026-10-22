@@ -6,18 +6,18 @@ int main()
 {
     InitWindow(ScreenWidth, ScreenHeight, "Software");
     SetTargetFPS(60);   
-    engine.Set();        
+    EngineCore::Set();       
 
         while (!WindowShouldClose())    
         {
-            engine.Start();
+            EngineCore::Start();
             BeginDrawing();
                 ClearBackground(BLACK);
-                engine.Update();
+                EngineCore::Update();
             EndDrawing();
         }
 
-    engine.Clean();
+    EngineCore::Clean();
     CloseWindow();        
 
 return 0;

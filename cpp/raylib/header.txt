@@ -4,22 +4,19 @@
 
 constexpr int  ScreenWidth = 960;
 constexpr int ScreenHeight = 540;
-
-constexpr int CenterX = ScreenWidth / 2;
-constexpr int CenterY = ScreenHeight / 2;
+constexpr Vector2 center = {ScreenWidth / 2, ScreenHeight / 2};
 
 struct EngineCore 
 {
     // Initializing 
-    void Set();
+    static void Set();
 
     // Logic
-    void Start();
+    static void Start();
 
     // Rendering
-    void Update();
+    static void Update();
 
     // Clean up 
-    void Clean();
+    static void Clean();
 }; 
-extern EngineCore engine;
